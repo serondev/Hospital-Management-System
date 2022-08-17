@@ -1,0 +1,68 @@
+﻿<Window x:Class="HospitalManagementSystemv1._0.editRegister"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalManagementSystemv1._0"
+        mc:Ignorable="d"
+        Title="editRegister" Height="585.246" Width="1124.591">
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="343*"/>
+            <RowDefinition Height="76*"/>
+        </Grid.RowDefinitions>
+        <Button Name="Main" Grid.Row="1" Content="Main Page" Click="Main_Click"/>
+        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Margin="300,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding id}" />
+                <DataGridTextColumn Header="SSN" Binding="{Binding SSN}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" />
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                <DataGridTextColumn Header="Doctor" Binding="{Binding Doctor}" />
+                <DataGridTextColumn Header="Explanation" Binding="{Binding Explanation}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="DeleteBTN" Content="Delete" Click="DeleteBTN_Click"/>
+                                <Button x:Name="UpdateBTN" Content="Update" Click="UpdateBTN_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Social Security &#xD;&#xA;Number" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="109"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Height="38" Width="109"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="38" Width="109"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Height="38" Width="109"/>
+        <Label Content="Select Doctor" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Height="38" Width="109"/>
+        <Label Content="Explanation" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top" Height="38" Width="109"/>
+        <TextBox x:Name="txtSSN" HorizontalAlignment="Left" Height="33" Margin="131,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="33" Margin="131,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="txtSurname" HorizontalAlignment="Left" Height="34" Margin="131,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <RadioButton IsChecked="True" x:Name="rbMan" Content="Male" HorizontalAlignment="Left" Margin="131,255,0,0" VerticalAlignment="Top" GroupName="gender" Height="22" Width="53"/>
+        <RadioButton x:Name="rbWomen" Content="Female" HorizontalAlignment="Left" Margin="201,255,0,0" VerticalAlignment="Top" GroupName="gender" Height="22" Width="51"/>
+
+        <ComboBox SelectedIndex="0" x:Name="cbDoctor" HorizontalAlignment="Left" Margin="131,315,0,0" VerticalAlignment="Top" Width="121" Height="32">
+            <ComboBoxItem Content="Ilker DEMIRCI" HorizontalAlignment="Left" Width="199"/>
+            <ComboBoxItem Content="Okan ERTEPE" HorizontalAlignment="Left" Width="199"/>
+            <ComboBoxItem Content="Serkan ONDER" HorizontalAlignment="Left" Width="199"/>
+            <ComboBoxItem Content="Canan KARATAY" HorizontalAlignment="Left" Width="199"/>
+        </ComboBox>
+        <ListBox SelectedIndex="0" x:Name="lstbox" HorizontalAlignment="Left" Height="59" Margin="131,369,0,0" VerticalAlignment="Top" Width="150">
+            <ListBoxItem Content="Headache"/>
+            <ListBoxItem Content="Vomiting"/>
+            <ListBoxItem Content="Nausea"/>
+            <ListBoxItem Content="Cauma"/>
+        </ListBox>
+    </Grid>
+</Window>
